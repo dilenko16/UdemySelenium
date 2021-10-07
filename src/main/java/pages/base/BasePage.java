@@ -14,7 +14,7 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public final By authWidget = By.xpath("/html/body/div[3]/div/div/div[2]/div/div/div/div/div/div/div/div/div/div/iframe");
+    public final By authWidget = By.xpath("/html/body/div[4]/div/div/div[2]/div/div/div/div/div/div/div/div/div/div/iframe");
 
     /**
      *
@@ -34,6 +34,10 @@ public class BasePage {
         return element;
     }
 
+
+    /**
+     * Check is auth frame is
+     */
     public void isAuthWidgetPresent(){
         WebElement authFrame = driver.findElement(authWidget);
         waitElementIsVisible(authFrame);
