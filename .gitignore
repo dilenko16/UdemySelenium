@@ -6,3 +6,5 @@
 /.allure/
 /classes/
 /test-classes/
+/target/classes/
+/target/test-classes/
