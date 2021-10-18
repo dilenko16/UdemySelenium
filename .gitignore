@@ -4,3 +4,5 @@
 /SeleniumCourse.iml
 /debug.log
 /.allure/
+/classes/
+/test-classes/
