@@ -1,6 +1,6 @@
 package tests.telecomunications.positive;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tests.base.BaseTest;
 
 import static constants.Constant.Urls.MOBILE_PHONE_URL;

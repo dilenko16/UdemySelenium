@@ -1,5 +1,5 @@
 package tests.loans.positive;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import tests.base.BaseTest;
 
