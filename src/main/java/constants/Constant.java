@@ -13,4 +13,13 @@ public class Constant {
 
 
     }
+    public static class MobileReplenishmentTestData{
+        public static final String MOBILE_PAYMENT_PHONE_NUMBER = "686979712";
+        public static final String MOBILE_PAYMENT_CARD = "4506909324274797";
+        public static final String MOBILE_PAYMENT_CARD_EXP_DATE = "0622";
+        public static final String MOBILE_PAYMENT_CARD_CVV = "327";
+        public static final String FIRST_NAME = "TARAS";
+        public static final String LAST_NAME = "SHEVCHENKO";
+
+    }
 }
