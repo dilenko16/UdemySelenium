@@ -6,8 +6,11 @@
 /.allure/
 /classes/
 /test-classes/
-/target/classes/
+/target/classes/pages
 /target/test-classes/
 /allure-results/
-/target/classes/
-/target/test-classes/
+/target/classes/common/
+/target/classes/constants/
+/target/test-classes/tests/base/
+/target/test-classes/tests/loans/
+/target/test-classes/tests/telecomunications/
