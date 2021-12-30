@@ -27,9 +27,7 @@ public class MobilePhoneReplenishmentPage extends BasePage {
     private final By inputCardExpDate = By.xpath("//input[@data-qa-node='expiredebitSource']");
     private final By inputCardCVV = By.xpath("//input[@data-qa-node='cvvdebitSource']");
     private final By inputPhoneNumber = By.xpath("//input[@data-qa-node='phone-number']");
-    private final By paymentDetails = By.xpath("//span[@data-qa-node='details']");
-
-    Actions act = new Actions(driver);
+    private final By paymentDetails = By.xpath("//div[@data-qa-node='details']");
 
     /**
      * Choose a card from the wallet
