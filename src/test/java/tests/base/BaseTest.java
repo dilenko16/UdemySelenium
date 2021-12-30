@@ -5,8 +5,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -35,20 +33,29 @@ public class BaseTest {
         LOGGER.info("START TIME:" + LocalTime.now());
         LOGGER.info("Start clear reports dir: build/reports ...");
         File allureResults = new File("allure-results");
-        if(allureResults.isDirectory()){
-            for(File item : Objects.requireNonNull(allureResults.listFiles()))
+        if (allureResults.isDirectory()) {
+            for (File item : Objects.requireNonNull(allureResults.listFiles()))
                 item.delete();
         }
-        if (CLEAR_REPORT_DIR){
-            File allureScreenshots = new File("build/reports/tests");
-            for(File item : Objects.requireNonNull(allureResults.listFiles()))
+        if (CLEAR_REPORT_DIR) {
+            File allureScreenshots = new File("build/reports/tests/");
+            for (File item : Objects.requireNonNull(allureScreenshots.listFiles()))
                 item.delete();
         }
     }
 
+    @AfterEach
+    void clearCookiesAndLocalStorage() {
+        if (CLEAR_COOKIES) {
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+            driver.manage().deleteAllCookies();
+            javascriptExecutor.executeScript("window.sessionStorage.clear()");
+        }
+    }
+
     @AfterAll
-    void close(){
-        if(!HOLD_BROWSER_OPEN){
+    void close() {
+        if (!HOLD_BROWSER_OPEN) {
             driver.close();
         }
     }
