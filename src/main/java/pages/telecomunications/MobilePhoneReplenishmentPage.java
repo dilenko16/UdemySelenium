@@ -2,6 +2,7 @@ package pages.telecomunications;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
 public class MobilePhoneReplenishmentPage extends BasePage {
@@ -22,6 +23,7 @@ public class MobilePhoneReplenishmentPage extends BasePage {
     private final By inputCardExpDate = By.xpath("//input[@data-qa-node='expiredebitSource']");
     private final By inputCardCVV = By.xpath("//input[@data-qa-node='cvvdebitSource']");
     private final By inputPhoneNumber = By.xpath("//input[@data-qa-node='phone-number']");
+    private final By paymentDetails = By.xpath("data-qa-node='details'");
 
 
     /**
@@ -57,12 +59,27 @@ public class MobilePhoneReplenishmentPage extends BasePage {
     public MobilePhoneReplenishmentPage enterFirstName(String firstName){
         driver.findElement(inputFirstName).sendKeys(firstName);
         return this;
-    }public MobilePhoneReplenishmentPage enterLastName(String lastName){
+    }
+    public MobilePhoneReplenishmentPage enterLastName(String lastName){
         driver.findElement(inputLastName).sendKeys(lastName);
         return this;
     }
     public MobilePhoneReplenishmentPage submitToTheCart(){
         driver.findElement(buttonSubmitToTheCart).click();
+        return this;
+    }
+
+    public MobilePhoneReplenishmentPage addWait (){
+        WebElement wait = driver.findElement(inputFirstName);
+        waitElementIsVisible(wait);
+        waitElementIsVisible(driver.findElement(inputFirstName));
+        return this;
+    }
+
+    public MobilePhoneReplenishmentPage checkPaymentDetailsIsPresentCart(String text){
+        WebElement details = driver.findElement(paymentDetails);
+        waitElementIsVisible(details);
+        waitElementIsVisible(driver.findElement(paymentDetails));
         return this;
     }
 

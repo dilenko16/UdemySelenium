@@ -20,13 +20,18 @@ public class MobilePhoneReplenishmentPositiveTest extends BaseTest {
         basePage.gotoUrl(MOBILE_PHONE_URL);
         mobilePhoneReplenishmentPage
                 .enterPhoneNumber(MOBILE_PAYMENT_PHONE_NUMBER)
-                .enterAmount("1")
+                .enterAmount("100")
                 .enterCardFrom(MOBILE_PAYMENT_CARD)
                 .enterCardExpDate(MOBILE_PAYMENT_CARD_EXP_DATE)
-                .enterCardCVV(MOBILE_PAYMENT_CARD_CVV)
-                .enterFirstName(FIRST_NAME)
-                .enterLastName(LAST_NAME)
-                .submitToTheCart();
+                .enterCardCVV(MOBILE_PAYMENT_CARD_CVV);
+           //     .checkPaymentDetailsIsPresentCart("Mobile payment. Phone number +380686979712");
+//                //.addWait()
+//
+////                .submitToTheCart()
+//
+//                .enterFirstName(FIRST_NAME)
+//                .enterLastName(LAST_NAME)
+//                .submitToTheCart();
 
 
     }
