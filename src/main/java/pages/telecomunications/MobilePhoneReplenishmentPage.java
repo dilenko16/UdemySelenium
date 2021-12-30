@@ -1,9 +1,13 @@
 package pages.telecomunications;
 
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import pages.base.BasePage;
+
+import javax.swing.*;
 
 public class MobilePhoneReplenishmentPage extends BasePage {
 
@@ -15,7 +19,7 @@ public class MobilePhoneReplenishmentPage extends BasePage {
     private final By buttonWallet = By.xpath("//*[@id=\"app\"]/div[2]/section/div/div[1]/div[2]/div[1]/div/form/div[4]/div/div[1]/div[2]/div/div[1]");
     private final By inputCardFrom = By.xpath("//input[@data-qa-node='numberdebitSource']");
     private final By inputAmount = By.xpath("//input[@data-qa-node='amount']");
-    private final By buttonSubmitToTheCart = By.xpath("//input[@data-qa-node='submit']");
+    private final By buttonSubmitToTheCart = By.xpath("//button[@data-qa-node='submit']");
     private final By inputFirstName = By.xpath("//input[@data-qa-node='firstNamedebitSource']");
     private final By inputLastName = By.xpath("//input[@data-qa-node='lastNamedebitSource']");
 
@@ -23,8 +27,9 @@ public class MobilePhoneReplenishmentPage extends BasePage {
     private final By inputCardExpDate = By.xpath("//input[@data-qa-node='expiredebitSource']");
     private final By inputCardCVV = By.xpath("//input[@data-qa-node='cvvdebitSource']");
     private final By inputPhoneNumber = By.xpath("//input[@data-qa-node='phone-number']");
-    private final By paymentDetails = By.xpath("data-qa-node='details'");
+    private final By paymentDetails = By.xpath("//span[@data-qa-node='details']");
 
+    Actions act = new Actions(driver);
 
     /**
      * Choose a card from the wallet
@@ -65,7 +70,7 @@ public class MobilePhoneReplenishmentPage extends BasePage {
         return this;
     }
     public MobilePhoneReplenishmentPage submitToTheCart(){
-        driver.findElement(buttonSubmitToTheCart).click();
+       driver.findElement(buttonSubmitToTheCart).click();
         return this;
     }
 
@@ -77,9 +82,10 @@ public class MobilePhoneReplenishmentPage extends BasePage {
     }
 
     public MobilePhoneReplenishmentPage checkPaymentDetailsIsPresentCart(String text){
-        WebElement details = driver.findElement(paymentDetails);
-        waitElementIsVisible(details);
         waitElementIsVisible(driver.findElement(paymentDetails));
+        WebElement details = driver.findElement(paymentDetails);
+        Assertions.assertEquals(text, details.getText());
+//        waitElementIsVisible(driver.findElement(paymentDetails));
         return this;
     }
 
